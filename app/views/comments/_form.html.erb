@@ -1,0 +1,22 @@
+<div id="new_comment_form">
+  <%= render('layouts/errors', :object => @comment) %>
+
+  <%= form_for [@blog, @comment], :remote => true do |f| %>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>
+
+</div>

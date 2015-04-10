@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bloggor</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+
+<% if user_signed_in? %>
+  hello <%= current_user.email %>! |
+  <%=link_to "edit profile", edit_user_registration_path %> |
+  <%=link_to "logout", destroy_user_session_path, method: :delete %> |
+<% else %>
+  <%=link_to "Sign up", new_user_registration_path, id: "new_user"%> |
+  <%=link_to "Login", new_user_session_path, id: "login" %>
+<% end %>
+
+<%= flash[:notice] %>
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<h1><%= @blog.title %></h1>
+
+<%= @blog.body %>
+
+<h4>Comments:</h4>
+<p>
+  <%= link_to "Return to Bloggor index", blogs_path %> |
+  <%= link_to "Edit this Blog", edit_blog_path %> |
+  <%= link_to "Delete this Blog", blog_path(@blog), :data=> {:method => "delete"} %> |
+  <%= link_to "Add a comment", new_blog_comment_path(@blog), id: "new_comment", :remote => true %>
+</p>
+
+<ul id="comment_list">
+<% if @blog.comments.any? %>
+
+  <% @blog.comments.each do |comment| %>
+   <li>
+     <%= comment.name %>
+     <br>
+     <p>
+     <%= comment.body %>
+     </p>
+     <br>
+    <%= link_to "Edit this Comment", edit_blog_comment_path(@blog, comment) %> |
+    <%= link_to "Delete this comment", blog_comment_path(@blog, comment), :data => {:method => "delete"} %>
+   </li>
+  <% end %>
+  </ul>
+  <% else %>
+  <p>There are no comments yet!</p>
+<% end %>
