@@ -3,7 +3,7 @@ module Api
 
     private
 
-      def artist_params
+      def user_params
         params.require(:user).permit(:email)
       end
 
