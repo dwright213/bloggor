@@ -19,12 +19,11 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
 
-    Pusher['bloggor'].trigger('my_event', {
-      message: @blog.body
-    })
-
     if @blog.save
       redirect_to  blogs_path
+      Pusher['bloggor'].trigger('new-blog', {
+        message: @blog
+      })
     else
       render :new
     end
