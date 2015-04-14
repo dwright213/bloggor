@@ -20,9 +20,9 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
 
     if @blog.save
-      redirect_to  blogs_path
-      Pusher['bloggor'].trigger('new-blog', {
-        message: @blog
+      redirect_to blogs_path
+      Pusher['blogsChannel'].trigger('new-blog', {
+        blog: @blog
       })
     else
       render :new
