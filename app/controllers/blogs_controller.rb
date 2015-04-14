@@ -19,6 +19,10 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
 
+    Pusher['test_channel'].trigger('my_event', {
+      message: 'hello world'
+      })
+      
     if @blog.save
       redirect_to  blogs_path
     else
