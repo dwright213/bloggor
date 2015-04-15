@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
 
     if @blog.save
       redirect_to blogs_path
+
       Pusher['blogsChannel'].trigger('new-blog', {
         blog: @blog
       })
@@ -38,6 +39,10 @@ class BlogsController < ApplicationController
     @blog= Blog.find(params[:id])
     if @blog.update(blog_params)
       redirect_to blogs_path
+
+      Pusher['blogsChannel'].trigger('new-blog', {
+        blog: @blog
+      })
     else
       render :edit
     end
@@ -48,6 +53,11 @@ class BlogsController < ApplicationController
     @blog.destroy
     flash[:notice] = "Blog successfully deleted."
     redirect_to blogs_path
+
+    Pusher['blogsChannel'].trigger('delete-blog', {
+      blog: @blog
+    })
+
   end
 
   private
