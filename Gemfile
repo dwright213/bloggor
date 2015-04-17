@@ -14,7 +14,6 @@ gem 'jbuilder' # used for serialization of models into JSON
 gem 'kaminari' # adds pagination to ActiveModels
 gem 'pusher'
 gem 'active_model_pusher'
-gem 'unicorn'
 
 group :development do
   gem 'web-console'
