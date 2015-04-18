@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :blogs, :users
+    resources :blogs, :users, defaults: {format: :json}
   end
 end
