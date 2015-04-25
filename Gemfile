@@ -14,6 +14,11 @@ gem 'jbuilder' # used for serialization of models into JSON
 gem 'kaminari' # adds pagination to ActiveModels
 gem 'pusher'
 gem 'active_model_pusher'
+gem 'bootsy'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
 
 group :development do
   gem 'web-console'
