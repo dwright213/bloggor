@@ -1,21 +1,23 @@
 source 'https://rubygems.org'
+  gem 'rails'
+  gem 'pg'
+  gem 'sass-rails'
+  gem 'uglifier'
+  gem 'coffee-rails'
+  gem 'jquery-rails'
+  gem 'turbolinks'
+  gem 'pry'
+  gem 'devise'
+  gem 'rest-client'
+  gem 'jbuilder' # used for serialization of models into JSON
+  gem 'kaminari' # adds pagination to ActiveModels
+  gem 'pusher'
+  gem 'active_model_pusher'
+  gem 'bootsy'
 
-gem 'rails'
-gem 'pg'
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'pry'
-gem 'devise'
-gem 'rest-client'
-gem 'jbuilder' # used for serialization of models into JSON
-gem 'kaminari' # adds pagination to ActiveModels
-gem 'pusher'
-gem 'active_model_pusher'
-gem 'bootsy'
-gem 'rails-assets-bootstrap'
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
 
 group :development do
   gem 'web-console'

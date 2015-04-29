@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
@@ -252,7 +253,7 @@ DEPENDENCIES
   pusher
   quiet_assets
   rails
-  rails-assets-bootstrap
+  rails-assets-bootstrap!
   rails_12factor
   rest-client
   sass-rails
